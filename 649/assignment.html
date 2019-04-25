@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+   <head>
+       <meta charset="utf-8">
+   </head>
+   <body style="height: 100%; margin: 0">
+       <div id="container" style="height: 100%"></div>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts.min.js"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-gl/echarts-gl.min.js"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-stat/ecStat.min.js"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/dataTool.min.js"></script>
+       <!-- <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/bmap.min.js"></script> -->
+       <!-- <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/simplex.js"></script> -->
+       <script type="text/javascript">
+var dom = document.getElementById("container");
+var myChart = echarts.init(dom);
+var app = {};
+option = null;
+
+option = {
+    title : {
+        text: 'Antibiotics Effectiveness on Bacteria that Measured by MIC and Distinguished by Gram Staining',
+        x: 'center',
+        align: 'right'
+    },
+        graphic: [
+        {
+            type: 'group',
+            left: '10%',
+            bottom: 'left',
+            children: [
+                {
+                    type: 'rect',
+                    z: 100,
+                    left: 'center',
+                    top: 'middle',
+                    shape: {
+                        width: 150,
+                        height: 40,
+                    },
+                    style: {
+                        fill: '#fff',
+                        stroke: '#555',
+                        lineWidth: 2,
+                        shadowBlur: 8,
+                        shadowOffsetX: 3,
+                        shadowOffsetY: 3,
+                        shadowColor: 'rgba(0,0,0,0.3)'
+                    }
+                },
+                {
+                    type: 'text',
+                    z: 100,
+                    left: 'center',
+                    top: 'middle',
+                    style: {
+                        fill: '#333',
+                        text: [
+                            'Gram Staining',
+                            'pink represnts positive,',
+                            'blue represnts negative.'
+                        ].join('\n'),
+                        font: '10px Microsoft YaHei'
+                    }
+                }
+            ]
+        }
+    ],
+    angleAxis: {
+        type: 'category',
+        data: ['                       Aerobacter aerogenes',
+                 'Brucella abortus',
+                 'Escherichia coli',
+                 'Klebsiella pneumoniae',
+                 'Mycobacterium tuberculosis',
+                 'Proteus vulgaris',
+                 'Pseudomonas aeruginosa ',
+                 'Salmonella (Eberthella) typhosa',
+                 'Salmonella schottmuelleri  ',
+                 
+                 'Brucella anthracis',
+                 'Diplococcus pneumoniae',
+                 'Staphylococcus albus',
+                 'Staphylococcus aureus',
+                 'Streptococcus fecalis',
+                 'Streptococcus hemolyticus',
+                 'Streptococcus viridans',
+                 '',
+                ],
+        z: 20,
+        splitArea: {
+          interval: 0,
+          show: true,
+          areaStyle: {
+            color: [
+                'rgba(21,101,192,0.2)',
+                'rgba(21,101,192,0.2)',
+                'rgba(21,101,192,0.2)',
+                'rgba(21,101,192,0.2)',
+                'rgba(21,101,192,0.2)',
+                'rgba(21,101,192,0.2)',
+                'rgba(21,101,192,0.2)',
+                'rgba(21,101,192,0.2)',
+                'rgba(21,101,192,0.2)',
+                'rgba(230,74,25,0.2)',
+                'rgba(230,74,25,0.2)',
+                'rgba(230,74,25,0.2)',
+                'rgba(230,74,25,0.2)',
+                'rgba(230,74,25,0.2)',
+                'rgba(230,74,25,0.2)',
+                'rgba(230,74,25,0.2)',
+            ], 
+            opacity: 0.6,
+          },
+        },
+    },
+    radiusAxis: {
+    },
+    polar: {
+    },
+    series: [{
+        type: 'bar',
+        data: [6.772050096816762,
+                1.410986973710262,
+                4.635699391022914,
+                6.748876773914649,
+                6.688479239194416,
+                1.8082887711792655,
+                6.748876773914649,
+                1.410986973710262,
+                2.5726122302071057,
+                1.1317246401183119,
+                1.133013715385442,
+                1.1336576304109105,
+                1.1410330045520618,
+                1.410986973710262,
+                1.1317246401183119,
+                1.133013715385442],
+        coordinateSystem: 'polar',
+        name: 'Penicilin',
+        stack: 'a'
+    }, 
+    {
+        type: 'bar',
+        data:[1.410986973710262,
+                1.62924053973028,
+                1.252762968495368,
+                1.4586150226995167,
+                2.0918640616783932,
+                1.1631508098056809,
+                1.62924053973028,
+                1.252762968495368,
+                1.3609765531356008,
+                1.1346227261911428,
+                2.6461747973841225,
+                1.1631508098056809,
+                1.1410330045520618,
+                1.410986973710262,
+                2.8390784635086144,
+                2.5726122302071057],
+        coordinateSystem: 'polar',
+        name: 'Streptomycin',
+        stack: 'a'
+    }, {
+        type: 'bar',
+        data: [1.547562508716013,
+                1.1378330018213911,
+                1.1631508098056809,
+                1.410986973710262,
+                1.62924053973028,
+                1.1631508098056809,
+                1.252762968495368,
+                1.1339794325054011,
+                1.1600209167967532,
+                1.1336576304109105,
+                2.5726122302071057,
+                1.1317246401183119,
+                1.1317246401183119,
+                1.1631508098056809,
+                2.5726122302071057,
+                3.763522997109702],
+        coordinateSystem: 'polar',
+        name: 'Neomycin',
+        stack: 'a'
+    }],
+    legend: {
+        show: true,
+        type: 'scroll',
+        orient: 'vertical',
+        right: 10,
+        top: 20,
+        bottom: 20,
+        data: ['Penicilin', 'Streptomycin', 'Neomycin']
+    },
+};
+
+;
+if (option && typeof option === "object") {
+    myChart.setOption(option, true);
+}
+       </script>
+   </body>
+</html>
